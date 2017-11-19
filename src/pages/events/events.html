@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar align-title="center">
+    <ion-title>
+      Events
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar
+    [(ngModel)]="eventNameFilter">
+  </ion-searchbar>
+    <div *ngIf="filteredEvents && filteredEvents.length">
+      <div class="section"><span class="section-cathegory">Today</span>
+        <div *ngFor="let event of (filteredEvents | eventsDateFramePipe:0:0)">
+            <div [ngClass]="{'selected': event.selected, 'unselected': !event.selected}">
+                <eventdetails [event]="event" (notify)="onNotify($event)" ></eventdetails>
+            </div>
+        </div>
+      </div>
+      <div class="section"><span class="section-cathegory">This Week</span>        
+        <div *ngFor="let event of (filteredEvents | eventsDateFramePipe:1:7)">
+            <div [ngClass]="{'selected': event.selected, 'unselected': !event.selected}">
+               <eventdetails [event]="event" (notify)="onNotify($event)" ></eventdetails>
+            </div>
+        </div>
+      </div>
+      <div class="section"><span class="section-cathegory">Other</span>
+        <div *ngFor="let event of (filteredEvents | eventsDateFramePipe:-1:null)">
+            <div [ngClass]="{'selected': event.selected, 'unselected': !event.selected}">
+                <eventdetails [event]="event" (notify)="onNotify($event)" ></eventdetails>
+            </div>
+        </div>
+        <div *ngFor="let event of (filteredEvents | eventsDateFramePipe:null:8)">
+            <div [ngClass]="{'selected': event.selected, 'unselected': !event.selected}">
+                <eventdetails [event]="event" (notify)="onNotify($event)" ></eventdetails>
+            </div>
+        </div>
+      </div>
+    </div>
+    <ion-card *ngIf="!(filteredEvents && filteredEvents.length)">
+      <ion-card-content>
+        No events to show
+      </ion-card-content>
+    </ion-card>
+</ion-content>

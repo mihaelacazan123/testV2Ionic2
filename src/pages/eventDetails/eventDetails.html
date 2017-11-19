@@ -1,0 +1,102 @@
+<!--<ion-header>
+  <ion-navbar align-title="center">
+  </ion-navbar>
+</ion-header>-->
+
+<ion-content class="content-details">
+  <div  class="image-content-details">
+    <button class="backButton" (click)="back()"><ion-icon name="ios-arrow-back" class="backIcon"></ion-icon></button>
+    <ion-img [src]="event.image"></ion-img>
+  </div>
+  <div class="section sectionNoMargin">
+    <h1 class="h1">{{event.title}}</h1><br>
+    <div class="subsection">
+    <h5 class="h5">Public event . Hosted by TSA Amsterdam City</h5>
+    <br/><br/>
+    <p><ion-icon name="time"></ion-icon>  {{event.dateTime}}</p>
+    <p><ion-icon name="locate"></ion-icon>  The Pool - The Student Hotel Amsterdam City<br/></p>
+    <p><ion-icon name="speedometer"></ion-icon>  {{event.members.length}} going<br/></p>
+    <br/>
+    <div class="membersDetails">
+      <span *ngFor="let member of event.members; let i = index" [attr.data-index]="i" (click)="GoToDetails(event)" >
+          <ion-img width="50" height="50" [src]="member.photo" class="memberImgDetails" *ngIf="i<=6" [style.z-index]="i"></ion-img>
+          <b *ngIf="event.members.length>7 && i ==(event.members.length-1)" class="memberImgDetails othersDetails" [style.z-index]="event.members.length">+{{event.members.length-7}}</b>
+      </span> 
+     </div>
+    <div class="divDescriptionDetails">
+      {{event.description}}
+    </div><br>
+  </div>
+  </div>
+  <div class="section">
+      <textarea row="10" placeholder="Leave a message..." class="message"></textarea>
+  </div>
+
+  <div class="section">
+      <ion-grid>
+          <ion-row>
+            <ion-col>
+                <img src="../assets/imgs/Lucien.png">
+            </ion-col>
+            <ion-col col-11>
+                <b>Lucien van Geffen</b> shared a link.
+                <p class="h5"><ion-icon name="time"></ion-icon>15 minutes ago</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-12>
+                <img src="../assets/imgs/article.png" style="width:100%;">
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-12>
+                  <img src="../assets/imgs/highfiveselected.png"/><span class="actionmessage">14</span>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-4></ion-col>
+              <ion-col col-2>
+                  <img src="../assets/imgs/highfiveunselected.png"/><span class="actionmessage">High five</span>
+              </ion-col>
+              <ion-col col-2>
+                  <img src="../assets/imgs/comment.png"/><span class="actionmessage">Comment</span>
+              </ion-col>
+              <ion-col col-4></ion-col>
+          </ion-row>
+      </ion-grid>
+  </div>
+  <div class="section">
+      <ion-grid>
+          <ion-row>
+            <ion-col>
+                <img src="../assets/imgs/Bruno.png">
+            </ion-col>
+            <ion-col col-11>
+                <b>Bruno Dagestino</b> 
+                <p class="h5"><ion-icon name="time"></ion-icon>23 minutes ago</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-12>
+                Is it possible to leave after an hour? I would love to join, but I have another appointment later that evening..<br/><br/><br/>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-12>
+                  <img src="../assets/imgs/commentselected.png"/><span class="actionmessage">1</span>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-4></ion-col>
+              <ion-col col-2>
+                  <img src="../assets/imgs/highfiveunselected.png"/><span class="actionmessage">High five</span>
+              </ion-col>
+              <ion-col col-2>
+                  <img src="../assets/imgs/comment.png"/><span class="actionmessage">Comment</span>
+              </ion-col>
+              <ion-col col-4></ion-col>
+          </ion-row>
+      </ion-grid>
+  </div>
+
+</ion-content>

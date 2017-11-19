@@ -1,0 +1,36 @@
+<ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+            <ion-img class="eventImage" [src]="event.image" (click)="GoToDetails(event)">
+            </ion-img>
+            <div class="eventImageDate" (click)="GoToDetails(event)">
+                <p class="p1">{{event.dateTimeAsDate | date: 'd'}}</p>
+                <p class="p2">{{event.dateTimeAsDate | date: 'MMM'}}.</p>
+            </div>
+        </div>
+      </ion-col>
+      <ion-col col-8>
+          <h2 (click)="GoToDetails(event)">{{event.title}}</h2>
+          <span (click)="GoToDetails(event)">{{getEventDateTimeV2()}}</span>
+          <br/><br/>
+          <div class="members">
+            <span *ngFor="let member of event.members; let i = index" [attr.data-index]="i" (click)="GoToDetails(event)" >
+                <ion-img width="40" height="40" [src]="member.photo" class="memberImg" *ngIf="i<=2" [style.z-index]="i"></ion-img>
+            </span> 
+           </div>
+          <b *ngIf="event.members.length>3" class="others">+ {{event.members.length-3}} others</b>
+          <div class="divActionButtons">
+            <button ion-button [className]="getClass('going')" [hidden]="event.status=='ignore'" (click)="ChangeStatus('going')">
+                <ion-icon name="checkmark" *ngIf="event.status=='going'" class="checkedIcon"></ion-icon>
+                Going
+            </button> 
+            <button ion-button [className]="getClass('ignore')" [hidden]="event.status=='going'" (click)="ChangeStatus('ignore')">
+                <ion-icon name="checkmark" *ngIf="event.status=='ignore'" class="checkedIcon"></ion-icon>              
+                Ignore
+            </button>
+         </div>
+      </ion-col>
+    </ion-row>
+</ion-grid>
+

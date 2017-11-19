@@ -1,0 +1,98 @@
+$percentahe100: 100%;
+$px400 :400px;
+$backgroundmain: transparent;
+
+.background{
+    width: $percentahe100; 
+    height:$percentahe100;
+}
+
+.eventDetailsImage{
+    width:$percentahe100;
+    height:$percentahe100;
+    height:$px400;
+    background: $backgroundmain;
+}
+
+.eventDetailsImage img{
+    width:$percentahe100;
+}
+
+.backButton{
+    z-index: 10;
+    background-color:$backgroundmain;
+    position: absolute;
+    top: 10;
+    left: 20;
+}
+
+.backIcon{
+    font-size:60px;
+}
+.content-details{
+    text-align: left;
+}
+
+.image-content-details ion-img,.image-content-details ion-img.img-loaded img{
+    width:$percentahe100;
+    height:$px400;
+    padding:0px;
+    margin:0px;
+}
+
+.h1{
+    font-size:100px;
+    font-weight:bold;
+}
+
+.h5{
+    color:#a6a6a6;
+}
+
+.memberImgDetails{
+    float:left;
+    margin-left:-15px;
+    border-radius: 50%;
+}
+.membersDetails{
+    padding-left: 2%;
+}
+.othersDetails{
+    font-size:35px;
+    font-weight:bold;
+    background-color: #ffd004;
+    padding:5px;
+}
+
+.divDescriptionDetails{
+    content: '';
+    display: block;
+    clear: both;
+    padding-top:30px;
+    padding-bottom: 50px;
+}
+
+.sectionNoMargin{
+    margin-top:-40px !important;
+}
+
+.content-details .section, .subsection{
+    padding: 0px 50px 0px 50px !important;
+}
+
+.content-details .section{
+    padding:15px;
+}
+
+.message{
+    width:$percentahe100;
+    border:0px $backgroundmain;
+}
+
+.actionmessage{
+    font-size:20px;
+    color:#ababab;
+    display: inline-block;
+    vertical-align: middle;
+    height:50px;
+}
